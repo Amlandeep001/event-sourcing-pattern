@@ -25,7 +25,7 @@ public class OrderEvent
 	@Id
 	String id;
 	String orderId;
-	OrderStatus status; // CREATED, CONFIRMED
+	OrderStatus status; // SHIPPED, DELIVERED
 	String details;
 	LocalDateTime eventTimestamp;
 

@@ -6,14 +6,14 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
 @Data
+@FieldDefaults(level = lombok.AccessLevel.PRIVATE)
 @AllArgsConstructor
 @NoArgsConstructor
-@FieldDefaults(level = lombok.AccessLevel.PRIVATE)
 public class OrderRequest
 {
-    String orderId;
-    String name;
-    int qty;
-    double price;
-    String userId;
+	String orderId;
+	String name;
+	int qty;
+	double price;
+	String userId;
 }

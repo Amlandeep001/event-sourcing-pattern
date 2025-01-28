@@ -19,7 +19,7 @@ public class ShippingEventService
 		this.repository = repository;
 	}
 
-	@KafkaListener(topics = "order-events", groupId = "shipping-service")
+	@KafkaListener(topics = "${order.event.topicName}", groupId = "${spring.kafka.consumer.groupId}")
 	public void consumeOrderEvent(OrderEvent orderEvent)
 	{
 		if(orderEvent.getStatus().equals(OrderStatus.CONFIRMED))

@@ -19,10 +19,10 @@ public class ShippingEventService
 		this.repository = repository;
 	}
 
-	@KafkaListener(topics = "${order.event.topicName}", groupId = "${spring.kafka.consumer.groupId}")
+	@KafkaListener(topics = "${shipping.event.topicName}", groupId = "${spring.kafka.consumer.group-id}")
 	public void consumeOrderEvent(OrderEvent orderEvent)
 	{
-		if(orderEvent.getStatus().equals(OrderStatus.CONFIRMED))
+		if(orderEvent.getStatus() == OrderStatus.CONFIRMED)
 		{
 			// Automatically ship after order confirmation
 			shipOrder(orderEvent.getOrderId());
